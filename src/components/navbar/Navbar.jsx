@@ -35,7 +35,7 @@ const Navbar = () => {
                             <Link to={'/signup'}>Signup</Link>
 
                             <li>
-                                <Link to={'/'}>Sky</Link>
+                                <Link to={'/userdashboard'}>Sky</Link>
                             </li>
                             <li>
                                 <Link to={'/cart'}>Cart(0)</Link>
