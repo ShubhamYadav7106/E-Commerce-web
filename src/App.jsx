@@ -10,6 +10,7 @@ import ScrollTop from "./components/scrollTop/ScrollTop"
 import Signup from "./pages/ragistration/Signup"
 import Login from "./pages/ragistration/Login"
 import UserDashboard from "./pages/user/UserDashboard"
+import AdminDashboard from "./pages/admin/AdminDashboard"
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/userdashboard" element={<UserDashboard/>}/>
+          <Route path="/admin-dashboard" element={<AdminDashboard/>}/>
         </Routes>
       </Router>
       
