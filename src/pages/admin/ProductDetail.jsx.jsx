@@ -1,9 +1,14 @@
+import { Button } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
+
 const ProductDetail = () => {
     return (
         <div>
             <div className="py-5 flex justify-between items-center">
                 <h1 className="text-xl text-pink-300 font-bold">All Product</h1>
-                <button className="px-5 py-2 bg-pink-50 border border-pink-100 rounded-lg">Add Product</button>
+               <Link to={'/add-product'}>
+                <Button className="text-black normal-case text-sm  bg-pink-50 border border-pink-100 rounded-lg">Add Product</Button>
+            </Link>
             </div>
 
             <div className="w-full overflow-x-auto">

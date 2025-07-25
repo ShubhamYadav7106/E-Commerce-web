@@ -11,6 +11,8 @@ import Signup from "./pages/ragistration/Signup"
 import Login from "./pages/ragistration/Login"
 import UserDashboard from "./pages/user/UserDashboard"
 import AdminDashboard from "./pages/admin/AdminDashboard"
+import AddProductPage from "./pages/admin/AddProductPage"
+import UpdateProductPage from "./pages/admin/UpdateProductPage"
 
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/userdashboard" element={<UserDashboard/>}/>
           <Route path="/admin-dashboard" element={<AdminDashboard/>}/>
+          <Route path="/add-product" element={<AddProductPage/>}/>
+          <Route path="/update-product" element={<UpdateProductPage/>}/>
         </Routes>
       </Router>
       
