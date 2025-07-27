@@ -60,7 +60,7 @@ const Navbar = () => {
             </li>}
           
             {user && <li className=" cursor-pointer" onClick={logout}>
-                logout
+                Logout
             </li>}
                             <li>
                                 <Link to={'/cart'}>Cart(0)</Link>
