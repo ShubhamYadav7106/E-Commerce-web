@@ -1,15 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 import myLogo from '../../assets/Sky_Logo_.png'
 // import  customer4 from '../../assets/customer4.png'
 
 const Navbar = () => {
+// / get user from localStorage 
+    const user = JSON.parse(localStorage.getItem('users'));
 
+
+    const navigate = useNavigate();
+
+
+    const logout = () => {
+        localStorage.clear('users');
+        navigate("/login")
+        
+    }
     return (
  <nav className="bg-pink-600
          sticky top-0">
             <div className="lg:flex lg:justify-between items-center  py-3 lg:px-3">
-                {/* LEFT  */}
+
                 <div className="left py-3 lg:py-0">
                     <Link to={'/'}>
                         <h2 className="font-bold text-white text-2xl text-center"> 
@@ -18,8 +29,7 @@ const Navbar = () => {
                     </Link>
                 </div>
 
-                {/* RIGHT  
-                    */}
+ 
                 <div className="
                     right flex justify-center mb-4 lg:mb-0">
                     <nav>
@@ -32,14 +42,26 @@ const Navbar = () => {
                                     All Product
                                 </Link>
                             </li>
-                            <Link to={'/signup'}>Signup</Link>
-
-                            <li>
-                                <Link to={'/userdashboard'}>Sky</Link>
-                            </li>
-                            <li>
-                                <Link to={'/admin-dashboard'}>Admin</Link>
-                            </li>
+                            
+                         
+            {!user ? <li>
+                <Link to={'/signup'}>Signup</Link>
+            </li> : ""}
+          
+            {!user ? <li>
+                <Link to={'/login'}>Login</Link>
+            </li> : ""}
+        
+            {user?.role === "user" && <li>
+                <Link to={'/user-dashboard'}>{user.name}</Link>
+            </li>}
+               {user?.role === "admin" && <li>
+                <Link to={'/admin-dashboard'}>{admin.name}</Link>
+            </li>}
+          
+            {user && <li className=" cursor-pointer" onClick={logout}>
+                logout
+            </li>}
                             <li>
                                 <Link to={'/cart'}>Cart(0)</Link>
                             </li>

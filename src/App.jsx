@@ -13,11 +13,16 @@ import UserDashboard from "./pages/user/UserDashboard"
 import AdminDashboard from "./pages/admin/AdminDashboard"
 import AddProductPage from "./pages/admin/AddProductPage"
 import UpdateProductPage from "./pages/admin/UpdateProductPage"
+import MyState from "./context/MyState"
+import Loader from "./components/loader/Loader"
+
+// import Loaderr from "./components/loader/Loaderr.jsx"
+import { Toaster } from "react-hot-toast"
 
 
 function App() {
   return (
-    <div>
+    <MyState>
       <Router>
         <ScrollTop/>
         <Routes>
@@ -28,14 +33,20 @@ function App() {
           <Route path="/allproduct" element={<AllProduct/>}/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login/>}/>
-          <Route path="/userdashboard" element={<UserDashboard/>}/>
+          <Route path="/user-dashboard" element={<UserDashboard/>}/>
           <Route path="/admin-dashboard" element={<AdminDashboard/>}/>
           <Route path="/add-product" element={<AddProductPage/>}/>
           <Route path="/update-product" element={<UpdateProductPage/>}/>
         </Routes>
+        {/* <Loader/>
+      <br/>
+      <br/>
+      <br/>
+      <Loaderr/> */}
+      <Toaster/>
       </Router>
       
-    </div>
+    </MyState>
   )
 }
 
