@@ -1,5 +1,5 @@
 
-import user from '../../assets/user-image.png'
+import userImage from '../../assets/user-image.png'
 import Layout from "../../components/layout/Layout";
 const products = [
   {
@@ -16,6 +16,7 @@ const products = [
 ]
 
 const UserDashboard = () => {
+  const user=JSON.parse(localStorage.getItem('users')) ;
   return (
     <Layout>
       <div className=" container mx-auto px-4 py-5 lg:py-8">
@@ -23,11 +24,15 @@ const UserDashboard = () => {
         <div className="top ">
           <div className=" bg-pink-50 py-5 rounded-xl border border-pink-100">
             <div className="flex justify-center">
-              <img src={user} alt="img" />
+              <img src={userImage} alt="img" />
             </div>
             <div className="">
-              <h1 className=" text-center text-lg"><span className=" font-bold">Name :</span> Sky </h1>
-              <h1 className=" text-center text-lg"><span className=" font-bold">Email :</span>gmail.com</h1>
+              <h1 className=" text-center text-lg"><span className=" font-bold">Name :</span> {user?.name} </h1>
+              <h1 className=" text-center text-lg"><span className=" font-bold">Role :</span>{user.role}</h1>
+              <h1 className=" text-center text-lg"><span className=" font-bold">Date :</span>{user.date}</h1>
+              <h1 className=" text-center text-lg"><span className=" font-bold">Email :</span>{user.email}</h1>
+              
+              
             </div>
           </div>
         </div>
