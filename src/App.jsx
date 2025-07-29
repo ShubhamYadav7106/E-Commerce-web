@@ -20,6 +20,7 @@ import Loader from "./components/loader/Loader"
 import { Toaster } from "react-hot-toast"
 import ProtectedRouteForUser from "./protectedRoute/ProtectedRouteForUser"
 import ProtectedRouteForAdmin from "./protectedRoute/ProtectedRouteForAdmin.jsx"
+import CategoryPage from "./pages/category/CategoryPage.jsx"
 
 
 function App() {
@@ -30,11 +31,12 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage/>} />
           <Route path="/*" element={<NoPage/>}/>
-          <Route path="/productInfo" element={<ProductInfo/>}/>
+          <Route path="/productInfo/:id" element={<ProductInfo/>}/>
           <Route path="/cart" element={<CartPage/>}/>
           <Route path="/allproduct" element={<AllProduct/>}/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login/>}/>
+          <Route path="/category/:categoryname" element={<CategoryPage/>}/>
           
           <Route path="/user-dashboard" element={
             <ProtectedRouteForUser>
@@ -51,11 +53,7 @@ function App() {
               <AddProductPage/>
              </ProtectedRouteForAdmin>
           }/>
-          {/* <Route path="/update-product" element={
-             <ProtectedRouteForAdmin>
-              <UpdateProductPage/>
-             </ProtectedRouteForAdmin>
-          }/> */}
+          
           <Route path="/updateproduct/:id" element={
             <ProtectedRouteForAdmin>
               <UpdateProductPage />
