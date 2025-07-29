@@ -56,7 +56,7 @@ const Navbar = () => {
                 <Link to={'/user-dashboard'}>{user.name}</Link>
             </li>}
                {user?.role === "admin" && <li>
-                <Link to={'/admin-dashboard'}>{admin.name}</Link>
+                <Link to={'/admin-dashboard'}>{user.name}</Link>
             </li>}
           
             {user && <li className=" cursor-pointer" onClick={logout}>

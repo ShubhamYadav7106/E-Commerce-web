@@ -7,7 +7,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, fireDB } from "../../firebase/FirebaseConfig";
 import Loader from "../../components/loader/Loader";
 import { collection, onSnapshot, query, where } from "firebase/firestore";
-import Loaderr from "../../components/loader/Loaderr";
+
 
 
 

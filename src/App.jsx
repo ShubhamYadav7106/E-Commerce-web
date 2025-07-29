@@ -46,16 +46,21 @@ function App() {
             <AdminDashboard/>
            </ProtectedRouteForAdmin>
           }/>
-          <Route path="/add-product" element={
+          <Route path="/addproduct" element={
              <ProtectedRouteForAdmin>
               <AddProductPage/>
              </ProtectedRouteForAdmin>
           }/>
-          <Route path="/update-product" element={
+          {/* <Route path="/update-product" element={
              <ProtectedRouteForAdmin>
               <UpdateProductPage/>
              </ProtectedRouteForAdmin>
-          }/>
+          }/> */}
+          <Route path="/updateproduct/:id" element={
+            <ProtectedRouteForAdmin>
+              <UpdateProductPage />
+            </ProtectedRouteForAdmin>
+          } />
         </Routes>
        
       <Toaster/>
