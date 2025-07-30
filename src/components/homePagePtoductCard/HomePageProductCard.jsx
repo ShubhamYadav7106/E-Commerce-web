@@ -1,10 +1,11 @@
 import { Button } from "@material-tailwind/react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import MyContext from "../../context/myContext";
 import Loader from "../loader/Loader";
-
-
+import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
+import { addToCart, deleteFromCart } from "../../redux/cartSlice";
 
 
 
@@ -12,14 +13,32 @@ const HomePageProductCard = () => {
     const navigate = useNavigate();
     const context = useContext(MyContext)
     const { loading, getAllProduct } = context;
+      const cartItems = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
+
+    const addCart = (item) => {
+        // console.log(item)
+        dispatch(addToCart(item));
+        
+        toast.success("Add to cart")
+    }
+
+    const deleteCart = (item) => {
+        dispatch(deleteFromCart(item));
+        toast.success("Delete cart")
+    }
+
+    // console.log(cartItems)
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+    }, [cartItems])
     return (
         <div className="mt-10">
-            {/* Heading  */}
             <div className="">
                 <h1 className=" text-center mb-5 text-2xl font-semibold">Bestselling Products</h1>
             </div>
 
-            {/* main  */}
             <section className="text-gray-600 body-font">
                 <div className="container px-5 py-5 mx-auto">
                     <div className="flex justify-center">
@@ -47,15 +66,24 @@ const HomePageProductCard = () => {
                                             <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
                                                 ₹{price}
                                             </h1>
+                                            <div
+                                                className="flex justify-center ">
+                                                {Array.isArray(cartItems) && cartItems.some((p)=> p.id === item.id)
+                                                ?
+                                                <button
+                                                    onClick={() => deleteCart(item)}
+                                                    className=" bg-red-700 hover:bg-pink-600 w-full text-white py-[4px] rounded-lg font-bold">
+                                                        Delete To Cart
+                                                </button>
 
-                                            <div className="flex justify-center ">
-                                                <Button className=" bg-pink-500 hover:bg-pink-600 w-full text-white py-[4px] rounded-lg font-bold p-1.5">
+                                                : 
 
-
-                                                    Add To Cart
-
-                                                </Button>
-
+                                                <button
+                                                    onClick={() => addCart(item)}
+                                                    className=" bg-pink-500 hover:bg-pink-600 w-full text-white py-[4px] rounded-lg font-bold">
+                                                        Add To Cart
+                                                </button>
+                                            }
                                             </div>
                                         </div>
                                     </div>

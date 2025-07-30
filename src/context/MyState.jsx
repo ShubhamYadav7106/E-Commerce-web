@@ -1,15 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
-import MyContext from './MyContext';
+import MyContext from './myContext';
 
 import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { fireDB } from '../firebase/FirebaseConfig';
 
 function MyState({ children }) {
-    // Loading State 
     const [loading, setLoading] = useState(false);
 
-    // User State
     const [getAllProduct, setGetAllProduct] = useState([]);
 
    

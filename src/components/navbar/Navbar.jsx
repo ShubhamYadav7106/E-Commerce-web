@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 import myLogo from '../../assets/Sky_Logo_.png'
+import { useSelector } from "react-redux";
 // import  customer4 from '../../assets/customer4.png'
 
 const Navbar = () => {
@@ -16,6 +17,7 @@ const Navbar = () => {
         navigate("/login")
         
     }
+    const cartItems=useSelector((state)=>state.cart)
     return (
  <nav className="bg-pink-600
          sticky top-0">
@@ -63,7 +65,7 @@ const Navbar = () => {
                 Logout
             </li>}
                             <li>
-                                <Link to={'/cart'}>Cart(0)</Link>
+                                <Link to={'/cart'}>Cart({cartItems.length})</Link>
                             </li>
                         </ul>
 
