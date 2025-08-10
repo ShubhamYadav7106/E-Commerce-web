@@ -6,6 +6,7 @@ import Loader from "../../components/loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, deleteFromCart } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 
 const CategoryPage = () => {
     const { categoryname } = useParams();
@@ -63,16 +64,16 @@ const CategoryPage = () => {
                                                         <div className="h-full border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer">
                                                             <img
                                                                 onClick={() => navigate(`/productinfo/${id}`)}
-                                                                className="lg:h-80  h-96 w-full"
+                                                                className="lg:h-80  h-96 w-full object-contain"
                                                                 src={productImageUrl}
-                                                                alt="blog"
+                                                                alt="img"
                                                             />
                                                             <div className="p-6">
                                                                 <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-                                                                    E-bharat
+                                                                    E-sky
                                                                 </h2>
                                                                 <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                                                                    {title.substring(0, 25)}
+                                                                    {title.substring(0, 10)}
                                                                 </h1>
                                                                 <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
                                                                     ₹{price}
@@ -83,19 +84,25 @@ const CategoryPage = () => {
                                                                     {cartItems.some((p) => p.id === item.id)
 
                                                                         ?
-                                                                        <button
-                                                                            onClick={() => deleteCart(item)}
-                                                                            className=" bg-red-700 hover:bg-pink-600 w-full text-white py-[4px] rounded-lg font-bold">
-                                                                            Delete From Cart
-                                                                        </button>
+                                                                        <motion.button
+                                                        onClick={() => deleteCart(item)}
+                                                        className="w-full bg-red-600 text-white px-6 py-1 rounded-full text-lg shadow-md hover:bg-red-700"
+                                                        whileHover={{ scale: 1.05 }}
+                                                        whileTap={{ scale: 0.95 }}
+                                                    >
+                                                        Delete From Cart
+                                                    </motion.button>
 
                                                                         :
 
-                                                                        <button
-                                                                            onClick={() => addCart(item)}
-                                                                            className=" bg-pink-500 hover:bg-pink-600 w-full text-white py-[4px] rounded-lg font-bold">
-                                                                            Add To Cart
-                                                                        </button>
+                                                                       <motion.button
+                                                        onClick={() => addCart(item)}
+                                                        className="w-full bg-blue-600 text-white px-6 py-1 rounded-full text-lg shadow-md hover:bg-blue-700"
+                                                        whileHover={{ scale: 1.05 }}
+                                                        whileTap={{ scale: 0.95 }}
+                                                    >
+                                                        Add To Cart
+                                                    </motion.button>
                                                                     }
                                                                 </div>
                                                             </div>

@@ -16,7 +16,6 @@ import UpdateProductPage from "./pages/admin/UpdateProductPage"
 import MyState from "./context/MyState"
 import Loader from "./components/loader/Loader"
 
-// import Loaderr from "./components/loader/Loaderr.jsx"
 import { Toaster } from "react-hot-toast"
 import ProtectedRouteForUser from "./protectedRoute/ProtectedRouteForUser"
 import ProtectedRouteForAdmin from "./protectedRoute/ProtectedRouteForAdmin.jsx"

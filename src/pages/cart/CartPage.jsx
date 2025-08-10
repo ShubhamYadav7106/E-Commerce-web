@@ -9,6 +9,7 @@ import { fireDB } from "../../firebase/FirebaseConfig";
 import BuyNowModal from "../../components/buyNowModal/BuyNowModal";
 import { Navigate } from "react-router-dom";
 
+
 const CartPage = () => {
     const cartItems = useSelector((state) => state.cart);
     const dispatch = useDispatch();
@@ -119,8 +120,8 @@ const CartPage = () => {
                                                             />
                                                         </div>
 
-                                                        <div className="ml-4 flex flex-1 flex-col justify-between sm:ml-6">
-                                                            <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
+                                                        <div className="ml-4 flex flex-1 flex-col justify-between  sm:ml-6">
+                                                            <div className="relative pr-9 sm:grid sm:grid-cols-2  sm:gap-x-6 sm:pr-0">
                                                                 <div>
                                                                     <div className="flex justify-between">
                                                                         <h3 className="text-sm">

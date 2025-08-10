@@ -13,9 +13,11 @@ const UserDashboard = () => {
         <Layout>
             <div className=" container mx-auto px-4 py-5 lg:py-8">
                 <div className="top ">
-                    <div className=" bg-pink-50 py-5 rounded-xl border border-pink-100">
+                    <div className=" bg-blue-50 py-5 rounded-xl border border-blue-100">
                         <div className="flex justify-center">
-                            <img src="https://cdn-icons-png.flaticon.com/128/2202/2202112.png" alt="" />
+                            <img className='w-28 h-28 rounded-full object-cover'
+                src="https://img.freepik.com/premium-vector/person-with-blue-shirt-that-says-name-person_1029948-7040.jpg?w=740"
+                alt={user?.role} />
                         </div>
                         <div className="">
                             <h1 className=" text-center text-lg">
@@ -56,8 +58,8 @@ const UserDashboard = () => {
                                         const { id, date, quantity, price, title, productImageUrl, category } = item
                                         const { status } = order
                                         return (
-                                            <div key={index} className="mt-5 flex flex-col overflow-hidden rounded-xl border border-pink-100 md:flex-row">
-                                                <div className="w-full border-r border-pink-100 bg-pink-50 md:max-w-xs">
+                                            <div key={index} className="mt-5 flex flex-col overflow-hidden rounded-xl border border-blue-100 md:flex-row">
+                                                <div className="w-full border-r border-blue-100 bg-blue-50 md:max-w-xs">
                                                     <div className="p-8">
                                                         <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-1">
                                                             <div className="mb-4">

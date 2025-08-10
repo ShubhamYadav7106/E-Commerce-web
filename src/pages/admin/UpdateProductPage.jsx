@@ -6,6 +6,8 @@ import { Timestamp, doc, getDoc, setDoc } from "firebase/firestore";
 import { fireDB } from "../../firebase/FirebaseConfig";
 import toast from "react-hot-toast";
 import Loader from "../../components/loader/Loader";
+import { motion } from "framer-motion";
+
 
 const categoryList = [
     {
@@ -61,12 +63,10 @@ const UpdateProductPage = () => {
         )
     });
 
-    // Get Single Product Function
     const getSingleProductFunction = async () => {
         setLoading(true);
         try {
             const productTemp = await getDoc(doc(fireDB, "products", id))
-            //   console.log(product.data())
             const product = productTemp.data();
             setProduct({
                 title: product?.title,
@@ -110,17 +110,14 @@ const UpdateProductPage = () => {
         <div>
             <div className='flex justify-center items-center h-screen'>
                 {loading && <Loader />}
-                {/* Login Form  */}
-                <div className="login_Form bg-pink-50 px-8 py-6 border border-pink-100 rounded-xl shadow-md">
+                <div className="login_Form bg-blue-50 px-8 py-6 border border-blue-400 rounded-xl shadow-md">
 
-                    {/* Top Heading  */}
                     <div className="mb-5">
-                        <h2 className='text-center text-2xl font-bold text-pink-500 '>
+                        <h2 className='text-center text-2xl font-bold text-blue-500 '>
                             Update Product
                         </h2>
                     </div>
 
-                    {/* Input One  */}
                     <div className="mb-3">
                         <input
                             type="text"
@@ -133,11 +130,10 @@ const UpdateProductPage = () => {
                                 })
                             }}
                             placeholder='Product Title'
-                            className='bg-pink-50 border text-pink-300 border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-300'
+                            className='bg-blue-50 border text-blue-400 border-blue-200 px-2 py-2 w-96 rounded-md outline-none placeholder-blue-400'
                         />
                     </div>
 
-                    {/* Input Two  */}
                     <div className="mb-3">
                         <input
                             type="number"
@@ -150,11 +146,10 @@ const UpdateProductPage = () => {
                                 })
                             }}
                             placeholder='Product Price'
-                            className='bg-pink-50 border text-pink-300 border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-300'
+                            className='bg-blue-50 border text-blue-400 border-blue-200 px-2 py-2 w-96 rounded-md outline-none placeholder-blue-400'
                         />
                     </div>
 
-                    {/* Input Three  */}
                     <div className="mb-3">
                         <input
                             type="text"
@@ -167,11 +162,10 @@ const UpdateProductPage = () => {
                                 })
                             }}
                             placeholder='Product Image Url'
-                            className='bg-pink-50 border text-pink-300 border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-300'
+                            className='bg-blue-50 border text-blue-400 border-blue-200 px-2 py-2 w-96 rounded-md outline-none placeholder-blue-400'
                         />
                     </div>
 
-                    {/* Input Four  */}
                     <div className="mb-3">
                         <select
                             value={product.category}
@@ -181,7 +175,7 @@ const UpdateProductPage = () => {
                                     category: e.target.value
                                 })
                             }}
-                            className="w-full px-1 py-2 text-pink-300 bg-pink-50 border border-pink-200 rounded-md outline-none  ">
+                            className="w-full px-1 py-2 text-blue-400 bg-blue-50 border border-blue-200 rounded-md outline-none  ">
                             <option disabled>Select Product Category</option>
                             {categoryList.map((value, index) => {
                                 const { name } = value
@@ -192,7 +186,6 @@ const UpdateProductPage = () => {
                         </select>
                     </div>
 
-                    {/* Input Five  */}
                     <div className="mb-3">
                         <textarea
                             value={product.description}
@@ -201,20 +194,21 @@ const UpdateProductPage = () => {
                                     ...product,
                                     description: e.target.value
                                 })
-                            }} name="description" placeholder="Product Description" rows="5" className=" w-full px-2 py-1 text-pink-300 bg-pink-50 border border-pink-200 rounded-md outline-none placeholder-pink-300 ">
+                            }} name="description" placeholder="Product Description" rows="5" className=" w-full px-2 py-1 text-blue-400 bg-blue-50 border border-blue-200 rounded-md outline-none placeholder-blue-400 ">
 
                         </textarea>
                     </div>
 
-                    {/* Update Product Button  */}
                     <div className="mb-3">
-                        <button
+                        <motion.button
                             onClick={updateProduct}
                             type='button'
-                            className='bg-pink-500 hover:bg-pink-600 w-full text-white text-center py-2 font-bold rounded-md '
+                            className="w-full bg-blue-600 text-white px-6 py-1 rounded-full text-lg shadow-md hover:bg-blue-700"
+                                                            whileHover={{ scale: 1.05 }}
+                                                            whileTap={{ scale: 0.95 }}
                         >
                             Update Product
-                        </button>
+                        </motion.button>
                     </div>
                 </div>
             </div>

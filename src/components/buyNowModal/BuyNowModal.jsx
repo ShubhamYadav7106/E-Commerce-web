@@ -1,5 +1,6 @@
-import {Button,Dialog,DialogBody,} from "@material-tailwind/react";
+import { Dialog, DialogBody, } from "@material-tailwind/react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
     const [open, setOpen] = useState(false);
@@ -7,14 +8,15 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
     const handleOpen = () => setOpen(!open);
     return (
         <>
-            <Button
+            <motion.button
                 type="button"
                 onClick={handleOpen}
-                className="w-full px-4 py-3 text-center text-gray-100 bg-pink-600 border border-transparent dark:border-gray-700 hover:border-pink-500 hover:text-pink-700 hover:bg-pink-100 rounded-xl"
-            >
+                className="w-full bg-blue-600 text-white px-6 py-1 rounded-full text-lg shadow-md hover:bg-blue-700"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}            >
                 Buy now
-            </Button>
-            <Dialog open={open} handler={handleOpen} className=" bg-pink-50">
+            </motion.button>
+            <Dialog open={open} handler={handleOpen} className=" bg-blue-50">
                 <DialogBody className="">
                     <div className="mb-3">
                         <input
@@ -28,7 +30,7 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
                                 })
                             }}
                             placeholder='Enter your name'
-                            className='bg-pink-50 border border-pink-200 px-2 py-2 w-full rounded-md outline-none text-pink-600 placeholder-pink-300'
+                            className='bg-blue-50 border border-blue-200 px-2 py-2 w-full rounded-md outline-none text-blue-600 placeholder-blue-300'
                         />
                     </div>
                     <div className="mb-3">
@@ -43,7 +45,7 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
                                 })
                             }}
                             placeholder='Enter your address'
-                            className='bg-pink-50 border border-pink-200 px-2 py-2 w-full rounded-md outline-none text-pink-600 placeholder-pink-300'
+                            className='bg-blue-50 border border-blue-200 px-2 py-2 w-full rounded-md outline-none text-blue-600 placeholder-blue-300'
                         />
                     </div>
 
@@ -59,7 +61,7 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
                                 })
                             }}
                             placeholder='Enter your pincode'
-                            className='bg-pink-50 border border-pink-200 px-2 py-2 w-full rounded-md outline-none text-pink-600 placeholder-pink-300'
+                            className='bg-blue-50 border border-blue-200 px-2 py-2 w-full rounded-md outline-none text-blue-600 placeholder-blue-300'
                         />
                     </div>
 
@@ -75,22 +77,24 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
                                 })
                             }}
                             placeholder='Enter your mobileNumber'
-                            className='bg-pink-50 border border-pink-200 px-2 py-2 w-full rounded-md outline-none text-pink-600 placeholder-pink-300'
+                            className='bg-blue-50 border border-blue-200 px-2 py-2 w-full rounded-md outline-none text-blue-600 placeholder-blue-300'
                         />
                     </div>
 
                     <div className="">
-                        <Button
+                        <motion.button
 
                             type="button"
                             onClick={() => {
                                 handleOpen();
                                 buyNowFunction();
                             }}
-                            className="w-full px-4 py-3 text-center text-gray-100 bg-pink-600 border border-transparent dark:border-gray-700 rounded-lg"
-                        >
+                            className="w-full bg-blue-600 text-white px-6 py-1 rounded-full text-lg shadow-md hover:bg-blue-700"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}                        >
                             Buy now
-                        </Button>
+                        </motion.button>
+
                     </div>
 
                 </DialogBody>

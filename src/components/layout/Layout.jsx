@@ -1,4 +1,3 @@
-// import { Navbar } from '@material-tailwind/react'
 import Footer from '../footer/Footer'
 import Navbar from '../navbar/Navbar'
 
